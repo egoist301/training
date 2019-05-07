@@ -1,17 +1,10 @@
 package maintask1.task1;
 
 public class NumberTheSame {
-    private static boolean same(int a, int b, int c) {
-        boolean result = false;
-        if (a == b && a == c) {
-            result = true;
-        }
-        return result;
-    }
 
     public static String sameOrDifferent(int a, int b, int c) {
         String line;
-        if (NumberTheSame.same(a, b, c)) {
+        if (a == b && a == c) {
             line = "same";
         } else if (a == b) {
             line = "a = b";

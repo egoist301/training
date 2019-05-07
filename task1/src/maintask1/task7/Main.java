@@ -10,9 +10,13 @@ public class Main {
         a = readInt();
         b = readInt();
         System.out.printf("a = %d  b = %d\n", a, b);
-        a += b;
-        b = a - b;
-        a = a - b;
-        System.out.printf("a = %d  b = %d\n", a, b);
+        if (a == b) {
+            System.out.println(a + " = " + b);
+        } else {
+            a += b;
+            b = a - b;
+            a = a - b;
+            System.out.printf("a = %d  b = %d\n", a, b);
+        }
     }
 }

@@ -16,4 +16,15 @@ public class UserInput {
         }
         return input;
     }
+    public static char readChar(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input char: ");
+        String input = scanner.next();
+        char ch = input.charAt(0);
+        if (input.length() > 1) {
+            System.err.println("This is string, not char. Try again!");
+            ch = readChar();
+        }
+        return ch;
+    }
 }
