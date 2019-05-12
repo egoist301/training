@@ -12,7 +12,7 @@ public class Main {
         Calculate.findPrimeDividers(number);
         System.out.println("\nYour number: " + number + " have different digits: "
                 + Calculate.countOfDifferentDigits(number));
-        System.out.println("Max digit of your number: " + Calculate.max(number));
+        System.out.println("Max digit of your number: " + Calculate.maxDigitOfNumber(number));
         System.out.println("Input a and b:");
         int a = readInt();
         int b = readInt();

@@ -40,7 +40,7 @@ public class Calculate {
     }
 
     //the first
-    public static int max(int number) {
+    public static int maxDigitOfNumber(int number) {
         int max = number % 10;
         while ((number /= 10) % 10 != 0) {
             if (number % 10 > max) {
