@@ -2,18 +2,18 @@ package entity;
 
 public class Matrix {
     private static final int DEFAULT_SIZE = 5;
-    private int[][] array;
+    private double[][] array;
 
     public Matrix() {
-        array = new int[DEFAULT_SIZE][DEFAULT_SIZE];
+        array = new double[DEFAULT_SIZE][DEFAULT_SIZE];
     }
 
-    public Matrix(int[][] array) {
+    public Matrix(double[][] array) {
         this.array = array;
     }
 
     public Matrix(int rows, int columns) {
-        array = new int[rows][columns];
+        array = new double[rows][columns];
     }
 
     public Matrix(int size) {
@@ -37,8 +37,12 @@ public class Matrix {
         return array[0].length;
     }
 
-    public int getElement(int i, int j) {
+    public double getElement(int i, int j) {
         return array[i][j];
+    }
+
+    public void setElement(int i, int j, double element){
+        array[i][j] = element;
     }
 
     public String toString() {
