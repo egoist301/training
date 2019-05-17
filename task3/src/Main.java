@@ -27,6 +27,7 @@ public class Main {
             System.out.println("Transpose matrix:");
             TransposeMatrix.transpose(matrix);
             System.out.println(matrix);
+            System.out.println(TransposeMatrix.transposeTwo(matrix));
         }
     }
 
