@@ -5,6 +5,9 @@ import entity.Matrix;
 public class LocalExtremes {
     private static boolean isLocalMinimum(Matrix array, int x, int y) {
         boolean min = false;
+        if(array.getCountColumns()==1 && array.getCountRows() ==1){
+            return true;
+        }
         if (x > 0 && x < array.getCountRows() - 1 && y > 0 && y < array.getCountColumns() - 1) {
             min = upperLeftAngleToMinimum(array, x, y) && lowerLeftAngleToMinimum(array, x, y)
                     && lowerRightAngleToMinimum(array, x, y) && upperRightAngleToMinimum(array, x, y);
@@ -91,6 +94,9 @@ public class LocalExtremes {
     }
     private static boolean isLocalMaximum(Matrix array, int x, int y) {
         boolean max = false;
+        if (array.getCountRows() == 1 && array.getCountColumns() == 1){
+            return true;
+        }
         if (x > 0 && x < array.getCountRows() - 1 && y > 0 && y < array.getCountColumns() - 1) {
             max = upperLeftAngleToMaximum(array, x, y) && lowerLeftAngleToMaximum(array, x, y)
                     && lowerRightAngleToMaximum(array, x, y) && upperRightAngleToMaximum(array, x, y);
