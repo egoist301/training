@@ -1,5 +1,6 @@
 package epam.model.entity;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Stone {
@@ -10,6 +11,15 @@ public class Stone {
     private double price;
     private double weight;
     private double transparency;
+
+    public static Comparator<Stone> stoneComparatorOfPrice = (Stone o1, Stone o2) -> (int) (o1.price - o2.price);
+
+    public static Comparator<Stone> stoneComparatorOfWeight = stoneComparatorOfPrice.thenComparing((Stone o1, Stone o2)
+            -> (int) (o1.weight - o2.weight));
+
+    public static Comparator<Stone> stoneComparatorOfTransparency = stoneComparatorOfWeight.thenComparing((Stone o1,
+                                                                                                           Stone o2)
+            -> (int) (o1.transparency - o2.transparency));
 
     public Stone() {//TODO add hierarchy
         price = DEFAULT_PRICE;
