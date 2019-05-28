@@ -78,9 +78,9 @@ public class Stone {
     @Override
     public String toString() {
         return "Stone{" +
-                ", price=" + price +
+                "price=" + price +
                 "$, weight=" + weight +
-                " carat, transparency=" +
+                " carat, transparency=" + transparency +
                 "%}";
     }
 

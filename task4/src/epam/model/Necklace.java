@@ -68,11 +68,42 @@ public class Necklace implements Iterable<Stone> {
         }
     }
 
+    public void set(Stone stone, int index) {
+        if (stone != null && index >= 0 && index < size()) {
+            necklace.set(index, stone);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Necklace)) return false;
+        Necklace necklace1 = (Necklace) o;
+        boolean result = true;
+        if(necklace1.size() == size()){
+            for (int i = 0; i < size(); i++){
+               result &= necklace1.get(i).equals(necklace.get(i));
+            }
+        }
+        else{
+            result = false;
+        }
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(necklace);
+    }
+
     @Override
     public String toString() {
-        return "Necklace{" +
-                "necklace=" + necklace +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        for (Stone stone : necklace){
+            builder.append(stone + "\n");
+        }
+        return builder.toString();
     }
 
     @Override
