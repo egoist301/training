@@ -40,7 +40,7 @@ public class FileWorker {
     private static Stone getStone(String[] arr){
         Stone stone;
         if (arr.length == 6) {
-            if (!arr[5].matches("[a-zA-Z]?\\d+")) {
+            if (!arr[5].matches("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)")) {
                 stone = new Gemstone(arr[0], Double.valueOf(arr[1]), Double.valueOf(arr[2]),
                         Double.valueOf(arr[3]), arr[4], arr[5]);
             } else {

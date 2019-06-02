@@ -32,8 +32,8 @@ public class Manager {
         }
     }
 
-    public static List<Stone> searchByTransparency(Necklace necklace, double start, double end) {
-        List<Stone> list = new ArrayList<>();
+    public static Necklace searchByTransparency(Necklace necklace, double start, double end) {
+        Necklace list = new Necklace();
         for (Stone stone : necklace) {
             if (stone.getTransparency() >= start && stone.getTransparency() <= end) {
                 list.add(stone);
