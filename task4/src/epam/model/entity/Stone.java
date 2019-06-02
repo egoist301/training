@@ -4,11 +4,13 @@ import java.util.Comparator;
 import java.util.Objects;
 
 public class Stone {
+    private final static String DEFAULT_NAME = "None";
     private final static double DEFAULT_PRICE = 0;
     private final static double DEFAULT_WEIGHT = 0;
     private final static double DEFAULT_TRANSPARENCY = 0;
     private final static String DEFAULT_COLOR = "Grey";
 
+    private String name;
     private String color;
     private double price;
     private double weight;
@@ -27,14 +29,16 @@ public class Stone {
             -> (int) (o1.color.compareTo(o2.color)));
 
     public Stone() {
+        name = DEFAULT_NAME;
         price = DEFAULT_PRICE;
         weight = DEFAULT_WEIGHT;
         transparency = DEFAULT_TRANSPARENCY;
         color = DEFAULT_COLOR;
     }
 
-    public Stone(double price, double weight, double transparency, String color) {
-        if (price >= 0 && weight > 0 && transparency >= 0 && transparency < 100 && color != null) {
+    public Stone(String name, double price, double weight, double transparency, String color) {
+        if (price >= 0 && weight > 0 && transparency >= 0 && transparency < 100 && color != null && name != null) {
+            this.name = name;
             this.price = price;
             this.weight = weight;
             this.transparency = transparency;
@@ -44,10 +48,21 @@ public class Stone {
 
     public Stone(Stone stone) {
         if (stone != null) {
-            price = stone.getPrice();
-            weight = stone.getWeight();
+            name = stone.name;
+            price = stone.price;
+            weight = stone.weight;
             transparency = stone.transparency;
             color = stone.color;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name != null) {
+            this.name = name;
         }
     }
 
@@ -95,7 +110,8 @@ public class Stone {
         if (this == o) return true;
         if (!(o instanceof Stone)) return false;
         Stone stone = (Stone) o;
-        return getPrice() == stone.getPrice() &&
+        return getName() == stone.getName() &&
+                getPrice() == stone.getPrice() &&
                 getWeight() == stone.getWeight() &&
                 getTransparency() == stone.getTransparency() &&
                 getColor().equals(stone.color);
@@ -104,13 +120,14 @@ public class Stone {
     @Override
     public int hashCode() {
 
-        return Objects.hash(getPrice(), getWeight(), getTransparency(), getColor());
+        return Objects.hash(getName(), getPrice(), getWeight(), getTransparency(), getColor());
     }
 
     @Override
     public String toString() {
         return "Stone{" +
-                "price=" + price +
+                "name=" + name +
+                ", price=" + price +
                 "$, weight=" + weight +
                 " carat, transparency=" + transparency +
                 "%, color=" + color + "}";

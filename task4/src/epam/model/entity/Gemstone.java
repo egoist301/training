@@ -10,8 +10,8 @@ public class Gemstone extends Stone {
         mineral = DEFAULT_MINERAL;
     }
 
-    public Gemstone(double price, double weight, double transparency, String color, String mineral) {
-        super(price, weight, transparency, color);
+    public Gemstone(String name, double price, double weight, double transparency, String color, String mineral) {
+        super(name, price, weight, transparency, color);
         if (mineral != null) {
             this.mineral = mineral;
         }
@@ -36,7 +36,9 @@ public class Gemstone extends Stone {
 
     @Override
     public String toString() {
-        return "Gemstone{" + "price=" + getPrice() +
+        return "GemStone{" +
+                "name=" + getName() +
+                ", price=" + getPrice() +
                 "$, weight=" + getWeight() +
                 " carat, transparency=" + getTransparency() +
                 "%, color=" + getColor() +

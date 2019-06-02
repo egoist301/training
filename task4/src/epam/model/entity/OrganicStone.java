@@ -10,8 +10,8 @@ public class OrganicStone extends Stone {
         hardness = DEFAULT_HARDNESS;
     }
 
-    public OrganicStone(double price, double weight, double transparency, String color, double hardness) {
-        super(price, weight, transparency, color);
+    public OrganicStone(String name, double price, double weight, double transparency, String color, double hardness) {
+        super(name, price, weight, transparency, color);
         if (hardness > 0 && hardness <= 100)
             this.hardness = hardness;
     }
@@ -36,7 +36,8 @@ public class OrganicStone extends Stone {
     @Override
     public String toString() {
         return "OrganicStone{" +
-                "price=" + getPrice() +
+                "name=" + getName() +
+                ", price=" + getPrice() +
                 "$, weight=" + getWeight() +
                 " carat, transparency=" + getTransparency() +
                 "%, color=" + getColor() +

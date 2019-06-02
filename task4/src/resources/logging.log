@@ -1,0 +1,6 @@
+2019-06-02 17:08:06 WARN  FileWorker:35 - java.lang.NumberFormatException: For input string: "12s"
+2019-06-02 17:09:53 WARN  FileWorker:35 - java.lang.NumberFormatException: For input string: "12s"
+2019-06-02 17:12:21 WARN  FileWorker:35 - java.lang.NumberFormatException: For input string: "12s"
+2019-06-02 17:13:47 INFO  Test:11 - Hello
+2019-06-02 17:13:56 INFO  Test:11 - Hello
+2019-06-02 17:13:56 WARN  FileWorker:35 - java.lang.NumberFormatException: For input string: "12s"

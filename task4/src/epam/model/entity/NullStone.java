@@ -4,6 +4,25 @@ public class NullStone extends Stone {
 
     public NullStone() {
         super();
+    }
+
+    @Override
+    public String getColor() {
+        return "";
+    }
+
+    @Override
+    public String getName() {
+        return "";
+    }
+
+    @Override
+    public void setColor(String color) {
+
+    }
+
+    @Override
+    public void setName(String name) {
 
     }
 

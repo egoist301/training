@@ -80,12 +80,11 @@ public class Necklace implements Iterable<Stone> {
         if (!(o instanceof Necklace)) return false;
         Necklace necklace1 = (Necklace) o;
         boolean result = true;
-        if(necklace1.size() == size()){
-            for (int i = 0; i < size(); i++){
-               result &= necklace1.get(i).equals(necklace.get(i));
+        if (necklace1.size() == size()) {
+            for (int i = 0; i < size(); i++) {
+                result &= necklace1.get(i).equals(necklace.get(i));
             }
-        }
-        else{
+        } else {
             result = false;
         }
         return result;
@@ -100,7 +99,7 @@ public class Necklace implements Iterable<Stone> {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (Stone stone : necklace){
+        for (Stone stone : necklace) {
             builder.append(stone + "\n");
         }
         return builder.toString();

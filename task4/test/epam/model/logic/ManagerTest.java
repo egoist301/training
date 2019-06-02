@@ -15,12 +15,12 @@ public class ManagerTest {
     public void calculateCost() {
         Necklace necklace = new Necklace();
 
-        necklace.add(new Gemstone(21, 21, 12, "Black", "Diamond"));
-        necklace.add(new Stone(12, 12, 2, "Grey"));
-        necklace.add(new OrganicStone(100, 100, 10, "Pink", 15));
-        necklace.add(new Gemstone(50, 13, 21, "Green", "Beryl"));
-        necklace.add(new Stone(61, 16, 17, "Yellow"));
-        necklace.add(new OrganicStone(70, 80, 17, "Blue", 28));
+        necklace.add(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
+        necklace.add(new Stone("", 12, 12, 2, "Grey"));
+        necklace.add(new OrganicStone("", 100, 100, 10, "Pink", 15));
+        necklace.add(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
+        necklace.add(new Stone("", 61, 16, 17, "Yellow"));
+        necklace.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
 
         assertEquals(314, Manager.calculateCost(necklace), 0.1);
     }
@@ -29,38 +29,35 @@ public class ManagerTest {
     public void calculateWeight() {
         Necklace necklace = new Necklace();
 
-        necklace.add(new Gemstone(21, 21, 12, "Black", "Diamond"));
-        necklace.add(new Stone(12, 12, 2, "Grey"));
-        necklace.add(new OrganicStone(100, 100, 10, "Pink", 15));
-        necklace.add(new Gemstone(50, 13, 21, "Green", "Beryl"));
-        necklace.add(new Stone(61, 16, 17, "Yellow"));
-        necklace.add(new OrganicStone(70, 80, 17, "Blue", 28));
-
+        necklace.add(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
+        necklace.add(new Stone("", 12, 12, 2, "Grey"));
+        necklace.add(new OrganicStone("", 100, 100, 10, "Pink", 15));
+        necklace.add(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
+        necklace.add(new Stone("", 61, 16, 17, "Yellow"));
+        necklace.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
         assertEquals(242, Manager.calculateWeight(necklace), 0.1);
     }
 
     @Test
     public void quickSort() {
         Necklace necklace = new Necklace();
-
-        necklace.add(new Gemstone(21, 21, 12, "Black", "Diamond"));
-        necklace.add(new Stone(12, 12, 2, "Grey"));
-        necklace.add(new OrganicStone(100, 100, 10, "Pink", 15));
-        necklace.add(new Gemstone(50, 13, 21, "Green", "Beryl"));
-        necklace.add(new Stone(61, 16, 17, "Yellow"));
-        necklace.add(new OrganicStone(70, 80, 17, "Blue", 28));
-
+        necklace.add(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
+        necklace.add(new Stone("", 12, 12, 2, "Grey"));
+        necklace.add(new OrganicStone("", 100, 100, 10, "Pink", 15));
+        necklace.add(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
+        necklace.add(new Stone("", 61, 16, 17, "Yellow"));
+        necklace.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
         Necklace necklace1 = new Necklace();
 
 
-        necklace1.add(new Stone(12, 12, 2, "Grey"));
-        necklace1.add(new Gemstone(21, 21, 12, "Black", "Diamond"));
-        necklace1.add(new Gemstone(50, 13, 21, "Green", "Beryl"));
-        necklace1.add(new Stone(61, 16, 17, "Yellow"));
-        necklace1.add(new OrganicStone(70, 80, 17, "Blue", 28));
-        necklace1.add(new OrganicStone(100, 100, 10, "Pink", 15));
+        necklace1.add(new Stone("", 12, 12, 2, "Grey"));
+        necklace1.add(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
+        necklace1.add(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
+        necklace1.add(new Stone("", 61, 16, 17, "Yellow"));
+        necklace1.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
+        necklace1.add(new OrganicStone("", 100, 100, 10, "Pink", 15));
 
-        Manager.quickSort(necklace, Stone.stoneComparatorOfWeight);
+        Manager.quickSort(necklace, Stone.stoneComparatorOfPrice);
         assertEquals(necklace1, necklace);
     }
 
@@ -68,12 +65,12 @@ public class ManagerTest {
     public void searchByTransparency() {
         Necklace necklace = new Necklace();
 
-        Gemstone diamond = new Gemstone(21, 21, 12, "Black", "Diamond");
-        Stone amber = new Stone(12, 12, 2, "Grey");
-        OrganicStone pearls = new OrganicStone(100, 100, 10, "Pink", 15);
-        Gemstone emerald = new Gemstone(50, 13, 21, "Green", "Beryl");
-        Stone sapphire = new Stone(61, 16, 17, "Yellow");
-        Stone ruby = new OrganicStone(70, 80, 17, "Blue", 28);
+        Gemstone diamond = new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond");
+        Stone amber = new Stone("", 12, 12, 2, "Grey");
+        OrganicStone pearls = new OrganicStone("", 100, 100, 10, "Pink", 15);
+        Gemstone emerald = new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl");
+        Stone sapphire = new Stone("", 61, 16, 17, "Yellow");
+        Stone ruby = new OrganicStone("", 70, 80, 17, "Blue", 28);
 
         necklace.add(amber);
         necklace.add(diamond);
