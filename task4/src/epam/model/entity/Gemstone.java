@@ -1,5 +1,7 @@
 package epam.model.entity;
 
+import java.util.Objects;
+
 public class Gemstone extends Stone {
     private final static String DEFAULT_MINERAL = "Diamond";
 
@@ -32,6 +34,21 @@ public class Gemstone extends Stone {
         if (mineral != null) {
             this.mineral = mineral;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Gemstone)) return false;
+        if (!super.equals(o)) return false;
+        Gemstone gemstone = (Gemstone) o;
+        return Objects.equals(getMineral(), gemstone.getMineral());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), getMineral());
     }
 
     @Override

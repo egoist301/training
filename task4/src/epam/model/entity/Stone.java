@@ -16,17 +16,13 @@ public class Stone {
     private double weight;
     private double transparency;
 
-    public static Comparator<Stone> stoneComparatorOfPrice = (Stone o1, Stone o2) -> (int) (o1.price - o2.price);
+    public static Comparator<Stone> comparatorOfPrice = (Stone o1, Stone o2) -> (int) (o1.price - o2.price);
 
-    public static Comparator<Stone> stoneComparatorOfWeight = stoneComparatorOfPrice.thenComparing((Stone o1, Stone o2)
-            -> (int) (o1.weight - o2.weight));
+    public static Comparator<Stone> comparatorOfWeight = (Stone o1, Stone o2) -> (int) (o1.weight - o2.weight);
 
-    public static Comparator<Stone> stoneComparatorOfTransparency = stoneComparatorOfWeight.thenComparing((Stone o1,
-                                                                                                           Stone o2)
-            -> (int) (o1.transparency - o2.transparency));
-    public static Comparator<Stone> stoneComparatorOfColor = stoneComparatorOfTransparency.thenComparing((Stone o1,
-                                                                                                          Stone o2)
-            -> (int) (o1.color.compareTo(o2.color)));
+    public static Comparator<Stone> comparatorOfTransparency = (Stone o1, Stone o2)
+            -> (int) (o1.transparency - o2.transparency);
+    public static Comparator<Stone> comparatorOfColor = (Stone o1, Stone o2) -> (int) (o1.color.compareTo(o2.color));
 
     public Stone() {
         name = DEFAULT_NAME;
@@ -110,7 +106,7 @@ public class Stone {
         if (this == o) return true;
         if (!(o instanceof Stone)) return false;
         Stone stone = (Stone) o;
-        return getName() == stone.getName() &&
+        return getName().equals(stone.getName()) &&
                 getPrice() == stone.getPrice() &&
                 getWeight() == stone.getWeight() &&
                 getTransparency() == stone.getTransparency() &&

@@ -11,6 +11,6 @@ public class NecklaceSort extends MenuEntry {
 
     @Override
     public void run(Necklace necklace) {
-        Manager.quickSort(necklace, Stone.stoneComparatorOfWeight);
+        Manager.quickSort(necklace, Stone.comparatorOfWeight);
     }
 }

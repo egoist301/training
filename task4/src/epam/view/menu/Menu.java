@@ -1,6 +1,7 @@
 package epam.view.menu;
 
 import epam.model.Necklace;
+import epam.view.Printer;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
@@ -27,7 +28,7 @@ public class Menu {
     public void run(Necklace necklace) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (!isExit) {
-            System.out.println(toString());
+            Printer.execute(toString());
             try {
                 int choice = Integer.parseInt(reader.readLine());
                 MenuEntry entry = menu.get(choice);
@@ -37,12 +38,7 @@ public class Menu {
                 LOG.warn("Menu: ", e);
             }
         }
-        try {
-            reader.close();
-        }
-        catch (IOException ex){
-            LOG.warn(ex);
-        }
+
     }
 
     public void addEntry(MenuEntry entry) {

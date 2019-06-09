@@ -1,5 +1,7 @@
 package epam.model.entity;
 
+import java.util.Objects;
+
 public class OrganicStone extends Stone {
     private final static double DEFAULT_HARDNESS = 75;
 
@@ -31,6 +33,21 @@ public class OrganicStone extends Stone {
         if (hardness > 0 && hardness <= 100) {
             this.hardness = hardness;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrganicStone)) return false;
+        if (!super.equals(o)) return false;
+        OrganicStone that = (OrganicStone) o;
+        return Double.compare(that.getHardness(), getHardness()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), getHardness());
     }
 
     @Override

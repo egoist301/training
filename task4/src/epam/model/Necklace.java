@@ -43,7 +43,7 @@ public class Necklace implements Iterable<Stone> {
     }
 
     public void remove(int index) {
-        if (index >= 0 && index < necklace.size()) {
+        if ((index >= 0) && (index < necklace.size())) {
             modCount++;
             necklace.remove(index);
         }
@@ -61,7 +61,7 @@ public class Necklace implements Iterable<Stone> {
     }
 
     public Stone get(int index) {
-        if (index >= 0 && index < necklace.size()) {
+        if ((index >= 0) && (index < necklace.size())) {
             return necklace.get(index);
         } else {
             return new NullStone();
@@ -69,7 +69,9 @@ public class Necklace implements Iterable<Stone> {
     }
 
     public void set(Stone stone, int index) {
-        if (stone != null && index >= 0 && index < size()) {
+        if ((stone != null)
+                && (index >= 0)
+                || (index < size())) {
             necklace.set(index, stone);
         }
     }
@@ -92,7 +94,6 @@ public class Necklace implements Iterable<Stone> {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(necklace);
     }
 

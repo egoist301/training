@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 
 public class ManagerTest {
 
+
     @Test
     public void calculateCost() {
         Necklace necklace = FileWorker.createNecklace("src\\resources\\stones.txt");
@@ -36,7 +37,6 @@ public class ManagerTest {
         necklace.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
         Necklace necklace1 = new Necklace();
 
-
         necklace1.add(new Stone("", 12, 12, 2, "Grey"));
         necklace1.add(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
         necklace1.add(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
@@ -44,7 +44,7 @@ public class ManagerTest {
         necklace1.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
         necklace1.add(new OrganicStone("", 100, 100, 10, "Pink", 15));
 
-        Manager.quickSort(necklace, Stone.stoneComparatorOfPrice);
+        Manager.quickSort(necklace, Stone.comparatorOfPrice.thenComparing(Stone.comparatorOfWeight));
         assertEquals(necklace1, necklace);
     }
 

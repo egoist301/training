@@ -1,6 +1,6 @@
 package epam.model.entity;
 
-public class NullStone extends Stone {
+public final class NullStone extends Stone {
 
     public NullStone() {
         super();

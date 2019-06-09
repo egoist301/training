@@ -1,7 +1,7 @@
-Diamond|13|13|13|Grey|Diamond
-Ruby|100|100|10|Pink|Corundum
-Emerald|50|13|21|Green|Beryl
-Sapphire|70|80|17|Blue|Corundum
-Pearls|61|16|17|Yellow|35
-Amber|12|12|2|Yellow|22.5
-Coral|21|21|12|Red|37.5
+gemstone|Diamond|13|13|13|Grey|Diamond
+gemstone|Ruby|100|100|10|Pink|Corundum
+gemstone|Emerald|50|13|21|Green|Beryl
+gemstone|Sapphire|70|80|17|Blue|Corundum
+organicstone|Pearls|61|16|17|Yellow|35
+organicstone|Amber|12|12|2|Yellow|22.5
+organicstone|Coral|21|21|12|Red|37.5
