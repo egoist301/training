@@ -15,34 +15,34 @@ public class ManagerTest {
 
     @Test
     public void calculateCost() {
-        Necklace necklace = FileWorker.createNecklace("src\\resources\\stones.txt");
+        Necklace necklace = FileWorker.createNecklaceFromFile("src\\resources\\stones.txt");
 
         assertEquals(327, Manager.calculateCost(necklace), 0.1);
     }
 
     @Test
     public void calculateWeight() {
-        Necklace necklace = FileWorker.createNecklace("src\\resources\\stones.txt");
+        Necklace necklace = FileWorker.createNecklaceFromFile("src\\resources\\stones.txt");
         assertEquals(255, Manager.calculateWeight(necklace), 0.1);
     }
 
     @Test
     public void quickSort() {
         Necklace necklace = new Necklace();
-        necklace.add(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
-        necklace.add(new Stone("", 12, 12, 2, "Grey"));
-        necklace.add(new OrganicStone("", 100, 100, 10, "Pink", 15));
-        necklace.add(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
-        necklace.add(new Stone("", 61, 16, 17, "Yellow"));
-        necklace.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
+        necklace.addStone(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
+        necklace.addStone(new Stone("", 12, 12, 2, "Grey"));
+        necklace.addStone(new OrganicStone("", 100, 100, 10, "Pink", 15));
+        necklace.addStone(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
+        necklace.addStone(new Stone("", 61, 16, 17, "Yellow"));
+        necklace.addStone(new OrganicStone("", 70, 80, 17, "Blue", 28));
         Necklace necklace1 = new Necklace();
 
-        necklace1.add(new Stone("", 12, 12, 2, "Grey"));
-        necklace1.add(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
-        necklace1.add(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
-        necklace1.add(new Stone("", 61, 16, 17, "Yellow"));
-        necklace1.add(new OrganicStone("", 70, 80, 17, "Blue", 28));
-        necklace1.add(new OrganicStone("", 100, 100, 10, "Pink", 15));
+        necklace1.addStone(new Stone("", 12, 12, 2, "Grey"));
+        necklace1.addStone(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
+        necklace1.addStone(new Gemstone("Emerald", 50, 13, 21, "Green", "Beryl"));
+        necklace1.addStone(new Stone("", 61, 16, 17, "Yellow"));
+        necklace1.addStone(new OrganicStone("", 70, 80, 17, "Blue", 28));
+        necklace1.addStone(new OrganicStone("", 100, 100, 10, "Pink", 15));
 
         Manager.quickSort(necklace, Stone.comparatorOfPrice.thenComparing(Stone.comparatorOfWeight));
         assertEquals(necklace1, necklace);
@@ -59,12 +59,12 @@ public class ManagerTest {
         Stone sapphire = new Stone("", 61, 16, 17, "Yellow");
         Stone ruby = new OrganicStone("", 70, 80, 17, "Blue", 28);
 
-        necklace.add(amber);
-        necklace.add(diamond);
-        necklace.add(emerald);
-        necklace.add(pearls);
-        necklace.add(ruby);
-        necklace.add(sapphire);
+        necklace.addStone(amber);
+        necklace.addStone(diamond);
+        necklace.addStone(emerald);
+        necklace.addStone(pearls);
+        necklace.addStone(ruby);
+        necklace.addStone(sapphire);
 
         List<Stone> list = new ArrayList<>();
 

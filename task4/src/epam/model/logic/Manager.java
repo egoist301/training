@@ -3,11 +3,13 @@ package epam.model.logic;
 import epam.model.Necklace;
 import epam.model.entity.*;
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 public class Manager {
+    private Manager() {
+
+    }
+
     public static double calculateCost(Necklace necklace) {
         if (necklace != null) {
             double sum = 0;
@@ -36,15 +38,15 @@ public class Manager {
         Necklace list = new Necklace();
         for (Stone stone : necklace) {
             if (stone.getTransparency() >= start && stone.getTransparency() <= end) {
-                list.add(stone);
+                list.addStone(stone);
             }
         }
         return list;
     }
 
-    public static void quickSort(Necklace necklace, Comparator<Stone> comparator){
+    public static void quickSort(Necklace necklace, Comparator<Stone> comparator) {
 
-        doSort(necklace, 0, necklace.size() - 1, comparator);
+        doSort(necklace, 0, necklace.getStonesCount() - 1, comparator);
     }
 
     private static void doSort(Necklace necklace, int start, int end, Comparator<Stone> comparator) {
@@ -53,16 +55,16 @@ public class Manager {
         int i = start, j = end;
         int cur = i - (i - j) / 2;
         while (i < j) {
-            while (i < cur && (comparator.compare(necklace.get(i),necklace.get(cur)) <= 0)) {
+            while (i < cur && (comparator.compare(necklace.getStone(i), necklace.getStone(cur)) <= 0)) {
                 i++;
             }
-            while (j > cur && (comparator.compare(necklace.get(cur), necklace.get(j)) <= 0)) {
+            while (j > cur && (comparator.compare(necklace.getStone(cur), necklace.getStone(j)) <= 0)) {
                 j--;
             }
             if (i < j) {
-                Stone temp = necklace.get(i);
-                necklace.set(necklace.get(j), i);
-                necklace.set(temp, j);
+                Stone temp = necklace.getStone(i);
+                necklace.setStone(necklace.getStone(j), i);
+                necklace.setStone(temp, j);
                 if (i == cur)
                     cur = j;
                 else if (j == cur)
@@ -70,7 +72,7 @@ public class Manager {
             }
         }
         doSort(necklace, start, cur, comparator);
-        doSort(necklace, cur+1, end, comparator);
+        doSort(necklace, cur + 1, end, comparator);
     }
 
 }

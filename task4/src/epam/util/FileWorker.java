@@ -16,54 +16,18 @@ public class FileWorker {
     private FileWorker() {
     }
 
-    public static Necklace createNecklace(String fileName) {
+    public static Necklace createNecklaceFromFile(String fileName) {
         Necklace necklace = new Necklace();
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(fileName));
-        } catch (FileNotFoundException ex) {
-            LOG.warn(ex);
-        }
-
-        while (true) {
-            try {
-                String line = reader.readLine();
-                if (line == null) {
-                    break;
-                }
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
                 String[] arr = line.split("\\|");
-
-                necklace.add(getStone(arr));
-
+                necklace.addStone(StoneFactory.getStoneFromString(arr));
             }
-            catch (IOException | NumberFormatException | IncorrectValueException e) {
-                LOG.warn(e);
-            }
+        } catch (IncorrectValueException | NumberFormatException | IOException ex) {
+            LOG.warn(ex);
         }
         return necklace;
     }
 
-    private static Stone getStone(String[] arr) throws IncorrectValueException {
-        Stone stone;
-        if (arr.length >= 6 && arr.length <= 7) {
-            switch (TypesStones.valueOf(arr[0].toUpperCase())) {
-                case GEMSTONE:
-                    stone = new Gemstone(arr[1], Double.valueOf(arr[2]), Double.valueOf(arr[3]),
-                            Double.valueOf(arr[4]), arr[5], arr[6]);
-                    break;
-                case ORGANICSTONE:
-                    stone = new OrganicStone(arr[1], Double.valueOf(arr[2]), Double.valueOf(arr[3]),
-                            Double.valueOf(arr[4]), arr[5], Double.valueOf(arr[6]));
-                    break;
-                case STONE:
-                    stone = new Stone(arr[1], Double.valueOf(arr[2]), Double.valueOf(arr[3]), Double.valueOf(arr[4]),
-                            arr[5]);
-                default:
-                    throw new IncorrectValueException("Incorrect values.");
-            }
-        } else {
-            throw new IncorrectValueException("Invalid number of values.");
-        }
-        return stone;
-    }
 }

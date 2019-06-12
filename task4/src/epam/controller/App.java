@@ -12,7 +12,7 @@ public class App {
         Printer.execute("Necklace\n");
         LOG.info("Start app.");
         Menu menu = new Menu();
-        Necklace necklace = FileWorker.createNecklace("src\\resources\\stones.txt");
+        Necklace necklace = FileWorker.createNecklaceFromFile("src\\resources\\stones.txt");
 
         menu.addEntry(new NecklaceToPrint("Print"));
         menu.addEntry(new FunctionMenu("Functional"));

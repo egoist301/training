@@ -1,6 +1,5 @@
 package epam.model;
 
-import epam.model.entity.NullStone;
 import epam.model.entity.Stone;
 
 import java.util.*;
@@ -21,7 +20,7 @@ public class Necklace implements Iterable<Stone> {
         this.necklace = new ArrayList<>(necklace.necklace);
     }
 
-    public void add(Stone stone) {
+    public void addStone(Stone stone) {
         if (stone != null) {
             modCount++;
             necklace.add(stone);
@@ -36,42 +35,36 @@ public class Necklace implements Iterable<Stone> {
     }
 
     public void removeAll() {
-        int size = size();
-        for (int i = size - 1; i >= 0; i--) {
-            remove(i);
-        }
+        necklace.clear();
     }
 
-    public void remove(int index) {
+    public void removeStone(int index) {
         if ((index >= 0) && (index < necklace.size())) {
             modCount++;
             necklace.remove(index);
         }
     }
 
-    public void remove(Stone stone) {
+    public void removeStone(Stone stone) {
         if (stone != null) {
             modCount++;
             necklace.remove(stone);
         }
     }
 
-    public int size() {
+    public int getStonesCount() {
         return necklace.size();
     }
 
-    public Stone get(int index) {
-        if ((index >= 0) && (index < necklace.size())) {
-            return necklace.get(index);
-        } else {
-            return new NullStone();
-        }
+    public Stone getStone(int index) {
+        return necklace.get(index);
+
     }
 
-    public void set(Stone stone, int index) {
+    public void setStone(Stone stone, int index) {
         if ((stone != null)
                 && (index >= 0)
-                || (index < size())) {
+                || (index < getStonesCount())) {
             necklace.set(index, stone);
         }
     }
@@ -82,9 +75,9 @@ public class Necklace implements Iterable<Stone> {
         if (!(o instanceof Necklace)) return false;
         Necklace necklace1 = (Necklace) o;
         boolean result = true;
-        if (necklace1.size() == size()) {
-            for (int i = 0; i < size(); i++) {
-                result &= necklace1.get(i).equals(necklace.get(i));
+        if (necklace1.getStonesCount() == getStonesCount()) {
+            for (int i = 0; i < getStonesCount(); i++) {
+                result &= necklace1.getStone(i).equals(necklace.get(i));
             }
         } else {
             result = false;
@@ -115,14 +108,14 @@ public class Necklace implements Iterable<Stone> {
 
             @Override
             public boolean hasNext() {
-                return index != size();
+                return index != getStonesCount();
             }
 
             @Override
             public Stone next() {
                 checkForComodification();
                 int i = index;
-                if (i >= size())
+                if (i >= getStonesCount())
                     throw new ConcurrentModificationException();
                 index = i + 1;
                 return necklace.get(lastRet = i);
@@ -135,7 +128,7 @@ public class Necklace implements Iterable<Stone> {
                 checkForComodification();
 
                 try {
-                    Necklace.this.remove(lastRet);
+                    Necklace.this.removeStone(lastRet);
                     index = lastRet;
                     lastRet = -1;
                     expectedModCount = modCount;
