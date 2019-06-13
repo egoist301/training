@@ -1,6 +1,8 @@
 package epam.model.logic;
 
 import epam.model.Necklace;
+import epam.model.comparator.ComparatorOfPrice;
+import epam.model.comparator.ComparatorOfWeight;
 import epam.model.entity.*;
 import epam.util.FileWorker;
 import org.junit.Test;
@@ -44,7 +46,7 @@ public class ManagerTest {
         necklace1.addStone(new OrganicStone("", 70, 80, 17, "Blue", 28));
         necklace1.addStone(new OrganicStone("", 100, 100, 10, "Pink", 15));
 
-        Manager.quickSort(necklace, Stone.comparatorOfPrice.thenComparing(Stone.comparatorOfWeight));
+        Manager.quickSort(necklace, new ComparatorOfPrice().thenComparing(new ComparatorOfWeight()));
         assertEquals(necklace1, necklace);
     }
 

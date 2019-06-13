@@ -13,25 +13,17 @@ public class Necklace implements Iterable<Stone> {
     }
 
     public Necklace(List<Stone> necklace) {
-        this.necklace = new ArrayList<>(necklace);
-    }
-
-    public Necklace(Necklace necklace) {
-        this.necklace = new ArrayList<>(necklace.necklace);
+        this.necklace = necklace;
     }
 
     public void addStone(Stone stone) {
-        if (stone != null) {
-            modCount++;
-            necklace.add(stone);
-        }
+        modCount++;
+        necklace.add(stone);
     }
 
     public void addAll(Collection<? extends Stone> necklace) {
-        if (necklace != null) {
-            modCount++;
-            this.necklace.addAll(necklace);
-        }
+        modCount++;
+        this.necklace.addAll(necklace);
     }
 
     public void removeAll() {
@@ -39,17 +31,13 @@ public class Necklace implements Iterable<Stone> {
     }
 
     public void removeStone(int index) {
-        if ((index >= 0) && (index < necklace.size())) {
-            modCount++;
-            necklace.remove(index);
-        }
+        modCount++;
+        necklace.remove(index);
     }
 
     public void removeStone(Stone stone) {
-        if (stone != null) {
-            modCount++;
-            necklace.remove(stone);
-        }
+        modCount++;
+        necklace.remove(stone);
     }
 
     public int getStonesCount() {
@@ -62,11 +50,7 @@ public class Necklace implements Iterable<Stone> {
     }
 
     public void setStone(Stone stone, int index) {
-        if ((stone != null)
-                && (index >= 0)
-                || (index < getStonesCount())) {
-            necklace.set(index, stone);
-        }
+        necklace.set(index, stone);
     }
 
     @Override

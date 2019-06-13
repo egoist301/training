@@ -52,12 +52,6 @@ public class OrganicStone extends Stone {
 
     @Override
     public String toString() {
-        return "OrganicStone{" +
-                "name=" + getName() +
-                ", price=" + getPrice() +
-                "$, weight=" + getWeight() +
-                " carat, transparency=" + getTransparency() +
-                "%, color=" + getColor() +
-                ", hardness=" + hardness + "%}";
+        return super.toString() + "; hardness = " + hardness;
     }
 }

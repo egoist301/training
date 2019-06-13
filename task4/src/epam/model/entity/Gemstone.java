@@ -53,12 +53,6 @@ public class Gemstone extends Stone {
 
     @Override
     public String toString() {
-        return "GemStone{" +
-                "name=" + getName() +
-                ", price=" + getPrice() +
-                "$, weight=" + getWeight() +
-                " carat, transparency=" + getTransparency() +
-                "%, color=" + getColor() +
-                ", mineral=" + mineral + "}";
+        return super.toString() + "; mineral = " + mineral;
     }
 }

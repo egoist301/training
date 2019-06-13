@@ -1,6 +1,5 @@
 package epam.model.entity;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 public class Stone {
@@ -15,14 +14,6 @@ public class Stone {
     private double price;
     private double weight;
     private double transparency;
-
-    public static Comparator<Stone> comparatorOfPrice = (Stone o1, Stone o2) -> (int) (o1.price - o2.price);
-
-    public static Comparator<Stone> comparatorOfWeight = (Stone o1, Stone o2) -> (int) (o1.weight - o2.weight);
-
-    public static Comparator<Stone> comparatorOfTransparency = (Stone o1, Stone o2)
-            -> (int) (o1.transparency - o2.transparency);
-    public static Comparator<Stone> comparatorOfColor = (Stone o1, Stone o2) -> (int) (o1.color.compareTo(o2.color));
 
     public Stone() {
         name = DEFAULT_NAME;
@@ -121,11 +112,11 @@ public class Stone {
 
     @Override
     public String toString() {
-        return "Stone{" +
-                "name=" + name +
-                ", price=" + price +
-                "$, weight=" + weight +
-                " carat, transparency=" + transparency +
-                "%, color=" + color + "}";
+        return this.getClass().getSimpleName() + "\n" +
+                "name = " + name +
+                "; price = " + price +
+                "$; weight = " + weight +
+                " carat; transparency = " + transparency +
+                "%; color = " + color;
     }
 }
