@@ -11,7 +11,8 @@ public class NecklaceCost extends MenuEntry {
 
     @Override
     public void run(Necklace necklace) {
-        Printer.execute("Cost of necklace:");
-        Printer.execute(Manager.calculateCost(necklace));
+        Printer printer = Printer.getPrinter();
+        printer.execute("Cost of necklace:");
+        printer.execute(new Manager().calculateCost(necklace));
     }
 }

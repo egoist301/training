@@ -21,7 +21,7 @@ public class Gemstone extends Stone {
 
     public Gemstone(Gemstone stone) {
         super(stone);
-        if (stone != null) {
+        if (stone.mineral != null){
             mineral = stone.mineral;
         }
     }
@@ -31,7 +31,7 @@ public class Gemstone extends Stone {
     }
 
     public void setMineral(String mineral) {
-        if (mineral != null) {
+        if (mineral != null){
             this.mineral = mineral;
         }
     }

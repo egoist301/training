@@ -11,7 +11,8 @@ public class NecklaceWeight extends MenuEntry {
 
     @Override
     public void run(Necklace necklace) {
-        Printer.execute("Weight:");
-        Printer.execute(Manager.calculateWeight(necklace));
+        Printer printer = Printer.getPrinter();
+        printer.execute("Weight:");
+        printer.execute(new Manager().calculateWeight(necklace));
     }
 }

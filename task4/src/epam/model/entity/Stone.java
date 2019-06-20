@@ -64,7 +64,6 @@ public class Stone {
     }
 
     public double getTransparency() {
-
         return transparency;
     }
 
@@ -79,8 +78,9 @@ public class Stone {
     }
 
     public void setPrice(double price) {
-        if (price >= 0)
+        if (price >= 0) {
             this.price = price;
+        }
     }
 
     public double getWeight() {
@@ -88,8 +88,9 @@ public class Stone {
     }
 
     public void setWeight(double weight) {
-        if (weight > 0)
+        if (weight > 0) {
             this.weight = weight;
+        }
     }
 
     @Override

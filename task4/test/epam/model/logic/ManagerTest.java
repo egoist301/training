@@ -5,6 +5,7 @@ import epam.model.comparator.ComparatorOfPrice;
 import epam.model.comparator.ComparatorOfWeight;
 import epam.model.entity.*;
 import epam.util.FileWorker;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,22 +15,25 @@ import static org.junit.Assert.*;
 
 public class ManagerTest {
 
-
     @Test
     public void calculateCost() {
+        Manager manager = new Manager();
         Necklace necklace = FileWorker.createNecklaceFromFile("src\\resources\\stones.txt");
 
-        assertEquals(327, Manager.calculateCost(necklace), 0.1);
+        assertEquals(327, manager.calculateCost(necklace), 0.1);
     }
 
     @Test
     public void calculateWeight() {
+        Manager manager = new Manager();
         Necklace necklace = FileWorker.createNecklaceFromFile("src\\resources\\stones.txt");
-        assertEquals(255, Manager.calculateWeight(necklace), 0.1);
+        assertEquals(255, manager.calculateWeight(necklace), 0.1);
     }
 
     @Test
     public void quickSort() {
+        Manager manager = new Manager();
+
         Necklace necklace = new Necklace();
         necklace.addStone(new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond"));
         necklace.addStone(new Stone("", 12, 12, 2, "Grey"));
@@ -46,13 +50,14 @@ public class ManagerTest {
         necklace1.addStone(new OrganicStone("", 70, 80, 17, "Blue", 28));
         necklace1.addStone(new OrganicStone("", 100, 100, 10, "Pink", 15));
 
-        Manager.quickSort(necklace, new ComparatorOfPrice().thenComparing(new ComparatorOfWeight()));
+        manager.quickSort(necklace, new ComparatorOfPrice().thenComparing(new ComparatorOfWeight()));
         assertEquals(necklace1, necklace);
     }
 
     @Test
     public void searchByTransparency() {
         Necklace necklace = new Necklace();
+        Manager manager = new Manager();
 
         Gemstone diamond = new Gemstone("Diamond", 21, 21, 12, "Black", "Diamond");
         Stone amber = new Stone("", 12, 12, 2, "Grey");
@@ -74,6 +79,6 @@ public class ManagerTest {
         list.add(diamond);
         list.add(pearls);
 
-        assertEquals(list, Manager.searchByTransparency(necklace, 1, 15));
+        assertEquals(list, manager.searchByTransparency(necklace, 1, 15));
     }
 }

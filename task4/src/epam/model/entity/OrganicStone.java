@@ -14,15 +14,14 @@ public class OrganicStone extends Stone {
 
     public OrganicStone(String name, double price, double weight, double transparency, String color, double hardness) {
         super(name, price, weight, transparency, color);
-        if (hardness > 0 && hardness <= 100)
+        if (hardness > 0 && hardness <= 100) {
             this.hardness = hardness;
+        }
     }
 
     public OrganicStone(OrganicStone stone) {
         super(stone);
-        if (stone != null) {
-            hardness = stone.hardness;
-        }
+        hardness = stone.hardness;
     }
 
     public double getHardness() {

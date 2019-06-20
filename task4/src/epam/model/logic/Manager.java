@@ -6,11 +6,12 @@ import epam.model.entity.*;
 import java.util.Comparator;
 
 public class Manager {
-    private Manager() {
+
+    public Manager() {
 
     }
 
-    public static double calculateCost(Necklace necklace) {
+    public double calculateCost(Necklace necklace) {
         if (necklace != null) {
             double sum = 0;
             for (Stone stone : necklace) {
@@ -22,7 +23,7 @@ public class Manager {
         }
     }
 
-    public static double calculateWeight(Necklace necklace) {
+    public double calculateWeight(Necklace necklace) {
         if (necklace != null) {
             double sum = 0;
             for (Stone stone : necklace) {
@@ -34,7 +35,7 @@ public class Manager {
         }
     }
 
-    public static Necklace searchByTransparency(Necklace necklace, double start, double end) {
+    public Necklace searchByTransparency(Necklace necklace, double start, double end) {
         Necklace list = new Necklace();
         for (Stone stone : necklace) {
             if (stone.getTransparency() >= start && stone.getTransparency() <= end) {
@@ -44,12 +45,12 @@ public class Manager {
         return list;
     }
 
-    public static void quickSort(Necklace necklace, Comparator<Stone> comparator) {
+    public void quickSort(Necklace necklace, Comparator<Stone> comparator) {
 
         doSort(necklace, 0, necklace.getStonesCount() - 1, comparator);
     }
 
-    private static void doSort(Necklace necklace, int start, int end, Comparator<Stone> comparator) {
+    private void doSort(Necklace necklace, int start, int end, Comparator<Stone> comparator) {
         if (start >= end)
             return;
         int i = start, j = end;
@@ -74,5 +75,4 @@ public class Manager {
         doSort(necklace, start, cur, comparator);
         doSort(necklace, cur + 1, end, comparator);
     }
-
 }

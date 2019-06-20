@@ -21,17 +21,17 @@ public class NecklaceFindStone extends MenuEntry {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         double start = 0;
         double end = 0;
-
+        Printer printer = Printer.getPrinter();
         try {
-            Printer.execute("Enter the lower limit of transparency:");
+            printer.execute("Enter the lower limit of transparency:");
             start = Double.parseDouble(reader.readLine());
-            Printer.execute("Enter the high limit of transparency:");
+            printer.execute("Enter the high limit of transparency:");
             end = Double.parseDouble(reader.readLine());
 
         } catch (IOException e) {
             LOG.warn(e);
         }
 
-        Printer.execute(Manager.searchByTransparency(necklace, start, end));
+        printer.execute(new Manager().searchByTransparency(necklace, start, end));
     }
 }

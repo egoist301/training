@@ -16,7 +16,7 @@ public class StoneFactory {
             switch (arr[0]) {
                 case "gemstone":
                     stone = new Gemstone(arr[1], Double.valueOf(arr[2]), Double.valueOf(arr[3]),
-                            Double.valueOf(arr[4]), arr[5], arr[6].trim());
+                            Double.valueOf(arr[4]), arr[5], arr[6]);
                     break;
                 case "organicstone":
                     stone = new OrganicStone(arr[1], Double.valueOf(arr[2]), Double.valueOf(arr[3]),

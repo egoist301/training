@@ -9,6 +9,7 @@ public class NecklaceToPrint extends MenuEntry {
     }
     @Override
     public void run(Necklace necklace) {
-        Printer.execute(necklace);
+        Printer printer = Printer.getPrinter();
+        printer.execute(necklace);
     }
 }

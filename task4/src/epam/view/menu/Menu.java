@@ -26,9 +26,10 @@ public class Menu {
     }
 
     public void run(Necklace necklace) {
+        Printer printer = Printer.getPrinter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (!isExit) {
-            Printer.execute(toString());
+            printer.execute(toString());
             try {
                 int choice = Integer.parseInt(reader.readLine());
                 MenuEntry entry = menu.get(choice);
