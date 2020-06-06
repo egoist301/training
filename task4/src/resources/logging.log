@@ -25,3 +25,5 @@
 2019-06-12 22:09:49 INFO  App:13 - Start app.
 2019-06-13 09:56:09 INFO  App:13 - Start app.
 2019-06-13 09:56:09 WARN  FileWorker:24 - java.lang.NumberFormatException: empty String
+2019-07-09 00:49:58 INFO  App:14 - Start app.
+2019-07-09 00:51:24 INFO  App:14 - Start app.

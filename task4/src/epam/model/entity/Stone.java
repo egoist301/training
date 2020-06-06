@@ -107,7 +107,6 @@ public class Stone {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(getName(), getPrice(), getWeight(), getTransparency(), getColor());
     }
 

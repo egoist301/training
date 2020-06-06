@@ -52,7 +52,7 @@ public class Menu {
         StringBuilder builder = new StringBuilder();
         builder.append("Menu:");
         for (int i = 0; i < menu.size(); i++) {
-            builder.append(String.format("\n%s - %s;", i, menu.get(i).getTitle()));
+            builder.append(String.format("%n%s - %s;", i, menu.get(i).getTitle()));
         }
         return builder.toString();
     }
